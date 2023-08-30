@@ -1,22 +1,24 @@
-import logo from './logo.svg';
+
+import { useState } from 'react';
 import './App.css';
+import API from './API';
 
 function App() {
+  const [data,setData]=useState(0);
+  const [item,setItem]=useState(1);
+  const multi=()=>{
+    console.log("test");
+    return setItem(item*10);
+  }
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        {/* <h1>hello</h1>
+        <h1>{data}</h1>
+        <h1>{item}</h1>
+        <button onClick={()=>setData(data+1)}>increase</button>
+        <button onClick={multi}>increase</button> */}
+        <API />
       </header>
     </div>
   );
