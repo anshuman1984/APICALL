@@ -11,7 +11,9 @@ const TableComponent = () => {
       .then(data => setJsonData(data))
       .catch(error => console.error('Error fetching data:', error));
   }, []);
-console.log(jsonData);
+  const capitalizeFirstLetter = (str) => {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  };
   return (
     <div>
       <h1>JSON Data Table</h1>
@@ -27,7 +29,7 @@ console.log(jsonData);
           {jsonData.map((value) => (
             <tr key={value.id}>
               <td>{value.id}</td>
-              <td style={{textAlign:"left"}}>{value.title}</td>
+              <td style={{textAlign:"left"}}>{capitalizeFirstLetter(value.title)}</td>
               <td>{value.completed?"YES":"NO"}</td>
             </tr>
             
