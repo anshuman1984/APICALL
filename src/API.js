@@ -26,6 +26,7 @@ const TableComponent = () => {
         </thead>
         <tbody>
           {jsonData.map((value) => (
+            (value.id<=3)&&
             <tr key={value.id}>
               <td>{value.id}</td>
               <td style={{textAlign:"left"}}>{capitalizeFirstLetter(value.title)}</td>
