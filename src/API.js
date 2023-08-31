@@ -32,8 +32,6 @@ const TableComponent = () => {
               <td style={{textAlign:"left"}}>{capitalizeFirstLetter(value.title)}</td>
               <td>{value.completed?"YES":"NO"}</td>
             </tr>
-            
-            
           ))}
         </tbody>
       </table>
@@ -42,4 +40,3 @@ const TableComponent = () => {
 };
 
 export default TableComponent;
- 
