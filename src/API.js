@@ -5,7 +5,6 @@ const TableComponent = () => {
   const [jsonData, setJsonData] = useState([]);
 
   useEffect(() => {
-    // Fetch JSON data (you can replace this with your own fetch logic)
     fetch('https://jsonplaceholder.typicode.com/todos')
       .then(response => response.json())
       .then(data => setJsonData(data))
