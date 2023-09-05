@@ -1,11 +1,10 @@
 
 import React, { useState, useEffect } from 'react';
-import { Button} from '@mui/material'
+import InputField from './component/InputField';
 
 const TableComponent = () => {
   const [jsonData, setJsonData] = useState([{id:'',title:'',completed:''}]);
   const [show,setShow]=useState(0);
-  const [data,setdata]=useState(0);
 
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/todos')
@@ -16,18 +15,16 @@ const TableComponent = () => {
   const capitalizeFirstLetter = (str) => {
     return str.charAt(0).toUpperCase() + str.slice(1);
   };
-  const handleChange=(e)=>{
-    setdata(e.target.value) ;
-   }
-  const handleClick=(e)=>{
-   setShow(data)
-  }
+
+  const handleChildData = (data) => {
+    // Update the parent component's state with the data from the child
+    setShow(data);
+  };
   return (
     <div>
       <center>
       <h1>JSON Data Table</h1>
-      <input type="text" onChange={handleChange} />
-      <Button onClick={handleClick} >Show</Button>
+      <InputField onDataUpdate={handleChildData}/>
       <table border="1px solid green">
         <thead>
           <tr>
