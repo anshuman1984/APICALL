@@ -5,6 +5,7 @@ import InputField from './component/InputField';
 const TableComponent = () => {
   const [jsonData, setJsonData] = useState([{id:'',title:'',completed:''}]);
   const [show,setShow]=useState(0);
+  const isHaveValue = show>0?true:false;
 
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/todos')
@@ -25,7 +26,9 @@ const TableComponent = () => {
       <center>
       <h1>JSON Data Table</h1>
       <InputField onDataUpdate={handleChildData}/>
-      <table border="1px solid green">
+     <div>
+    {isHaveValue &&
+      <table>
         <thead>
           <tr>
             <th>ID</th>
@@ -44,6 +47,7 @@ const TableComponent = () => {
           ))}
         </tbody>
       </table>
+}</div>
       </center>
     </div>
   );
